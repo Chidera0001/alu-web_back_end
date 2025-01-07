@@ -1,23 +1,20 @@
 #!/usr/bin/env python3
 """
-This module defines a function that takes a list of strings and returns a
-list of tuples. Each tuple contains a string from the list and its
-corresponding length.
+This module defines a function that takes an iterable of sequences and
+returns a list of tuples. Each tuple contains a sequence from the iterable
+and its corresponding length.
 """
+from typing import Iterable, Sequence, List, Tuple
 
-from typing import List, Tuple
 
-
-def element_length(lst: List[str]) -> List[Tuple[str, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
-    Takes a list of strings and returns a list of tuples. Each tuple contains
-    a string from the list and its length.
-
+    Takes an iterable of sequences and returns a list of tuples. Each tuple
+    contains a sequence from the iterable and its length.
     Args:
-        lst (List[str]): A list of strings to process.
-
+        lst (Iterable[Sequence]): An iterable of sequences to process.
     Returns:
-        List[Tuple[str, int]]: A list of tuples where each tuple contains
-        a string and its corresponding length.
+        List[Tuple[Sequence, int]]: A list of tuples where each tuple contains
+        a sequence and its corresponding length.
     """
     return [(i, len(i)) for i in lst]
