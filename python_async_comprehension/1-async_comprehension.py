@@ -11,7 +11,7 @@ from typing import List
 import asyncio
 
 # imported async_generator from previous task
-async_generator = __import__("0-async_generator.py").async_generator
+async_generator = __import__('0-async_generator').async_generator
 
 
 async def async_comprehension() -> List[float]:
