@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 
+"""
+coroutine to loop 10 times, each time asynchronously
+wait 1 second then yield a random number between 0
+and 10
+"""
+
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator():
+async def async_generator() -> Generator[float, None, None]:
     """
     Asynchronously generates 10 random numbers between 0 and 10,
     waiting 1 second between each number.
