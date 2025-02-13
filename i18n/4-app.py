@@ -1,53 +1,46 @@
 #!/usr/bin/env python3
-
 """
-Force locale with URL parameter
-This module allows you to force a specific locale
-using the locale parameter in the url
+Flask app
 """
-
-from flask_babel import Babel
 from flask import Flask, render_template, request
+from flask_babel import Babel
 
 
-app = Flask(__name__, template_folder='templates')
+class Config:
+    """
+    Config class
+    """
+    LANGUAGES = ['en', 'fr']
 
 
-# Initialize Babel extension
+app = Flask(__name__)
+app.url_map.strict_slashes = False
+app.config.from_object(Config)
+
 babel = Babel(app)
-
-app.config['LANGUAGES'] = ['en', 'fr']
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+Babel.default_locale = 'en'
+Babel.default_timezone = 'UTC'
 
 
-# Define a separate function to create the app
-def create_app():
-    """Return route"""
-    return app
+@app.route('/', methods=['GET'])
+def hello():
+    """ GET /
+    Return:
+      - Render template
+    """
+    return render_template('4-index.html')
 
 
-# Define a route for the home page
-@app.route('/', methods=['GET'], strict_slashes=False)
-def hello_world():
-    """Render the html template"""
-    return render_template('3-index.html')
-
-
-# Define a separate function to handle locale selection
 @babel.localeselector
 def get_locale():
     """
-    Determine the best match wot supported language
-    This function uses request.accept_languages and the
-    'locale' parameter in the URL to determine the user's
-    preferred language
+    Get locale from request
     """
     locale = request.args.get('locale')
-    if locale in app.config['LANGUAGES']:
+    if locale in Config.LANGUAGES:
         return locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(Config.LANGUAGES)
 
 
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port="5000")
