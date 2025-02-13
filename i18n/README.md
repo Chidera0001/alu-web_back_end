@@ -1,14 +1,4 @@
-# 0x02. i18n
-	**Back-end**
 
-![Test i18N](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/1/91e1c50322b2428428f9.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231031%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231031T205647Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a66befaa4f9273bf3ed39c8e63e642900421e0d20795a8552be8c60ecea48a5e)
-
-## Resources
-**Read or watch**
-  - [Flask-Babel](https://flask-babel.tkte.ch/)
-If the link doesn't work, use - [Flask Babel Github](https://python-babel.github.io/flask-babel/)
-  - [Flask i18n tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-i18n-and-l10n)
-  - [pytz](https://pytz.sourceforge.net/)
 
 # Learning Objectives
   * Learn how to parametrize Flask templates to display different languages
