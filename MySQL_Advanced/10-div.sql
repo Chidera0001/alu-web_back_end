@@ -1,17 +1,16 @@
--- divide function
-
-DELIMITER //
-CREATE FUNCTION safeDiv(
-    numerator   INT,
-    denominator INT
-) RETURNS FLOAT
-DETERMINISTIC
+-- 10. Safe divide
+-- createscreates a function SafeDiv that divides (and returns) the first by the second number or returns 0 if the second number is equal to 0
+DROP FUNCTION IF EXISTS SafeDiv;
+DELIMITER $$
+CREATE FUNCTION SafeDiv(a INT, b INT)
+RETURNS FLOAT DETERMINISTIC
 BEGIN
-    DECLARE result FLOAT;
-    IF denominator = 0 THEN SET result = 0;
-    ELSE SET result = numerator / denominator;
+    IF (b = 0)
+    THEN
+        RETURN (0);
+    ELSE
+        RETURN (a / b);
     END IF;
-    RETURN result;
-end //
-
+END
+$$ 
 DELIMITER ;

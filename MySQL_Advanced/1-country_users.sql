@@ -1,8 +1,9 @@
--- create user table if it doesn't exist
+-- 1. In and not out 
+-- creates a table users
 CREATE TABLE IF NOT EXISTS users (
-    id int auto_increment not null,
-    email varchar(255) unique not null,
-    name varchar(255),
-    country ENUM('US', 'CO', 'TN') not null default 'US',
-    primary key (id)
-)
+    id INT AUTO_INCREMENT, 
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255),
+    country ENUM('US', 'CO', 'TN') NOT NULL,
+    PRIMARY KEY (id)
+);
